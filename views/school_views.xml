@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="cv_marc_school_view_tree" model="ir.ui.view">
+        <field name="name">infosmarcschool.tree</field>
+        <field name="model">infosmarc.infosmarcschool</field>
+        <field name="arch" type="xml">
+            <tree string="School Tree">
+                <field name='name'/>
+                <field name='school' invisible='0'/>
+                <field name='year'/>
+                <field name="state"/>
+                <field name='note' class="o_text_overflow"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record id="cv_marc_school_action" model="ir.actions.act_window">
+        <field name="name">Diplômes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">infosmarc.infosmarcschool</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer une entrée
+            </p>
+        </field>
+    </record>
+
+        <menuitem id="cv_marc_root"
+            name="CV de MARC P"
+            sequence="10"/>
+
+        <menuitem id="cv_marc_job_root"
+            name="Expériences"
+            parent="cv_marc_root"
+            sequence="10"/>
+
+        <menuitem id="cv_marc_school"
+            name="Diplômes"
+            parent="cv_marc_job_root"
+            action="cv_marc_school_action"
+            sequence="10"/>
+
+</odoo>
